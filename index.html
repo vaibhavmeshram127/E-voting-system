@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Voting System</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Online E-Voting System</h1>
+
+    <div class="voter-info">
+      <img src="v1.jpg" alt="Voter Photo" width="100">
+      <p><strong>Name:</strong> Kiran Mullapudi</p>
+      <p><strong>Voter ID:</strong> 118</p>
+      <p><strong>Status:</strong> <span id="status">Not Voted</span></p>
+    </div>
+
+    <div class="voting-machine">
+      <h3>Your Voting Machine</h3>
+      <div class="candidate">
+        <span>BJP</span>
+        <button onclick="castVote('BJP')">Vote Here</button>
+      </div>
+      <div class="candidate">
+        <span>Congress</span>
+        <button onclick="castVote('Congress')">Vote Here</button>
+      </div>
+      <div class="candidate">
+        <span>Aparna</span>
+        <button onclick="castVote('Aparna')">Vote Here</button>
+      </div>
+      <div class="candidate">
+        <span>Suchitra</span>
+        <button onclick="castVote('Suchitra')">Vote Here</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function castVote(candidate) {
+      document.getElementById("status").textContent = "Voted";
+      alert("You voted for " + candidate);
+      // Disable all buttons after voting
+      document.querySelectorAll(".candidate button").forEach(btn => {
+        btn.disabled = true;
+        btn.textContent = "Voted";
+      });
+    }
+  </script>
+</body>
+</html>
